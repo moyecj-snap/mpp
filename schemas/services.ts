@@ -1042,7 +1042,7 @@ export const services: ServiceDef[] = [
     integration: "first-party",
     tags: ["jobs", "job-postings", "listings", "link-check", "verification"],
     docs: {
-      homepage: "https://livecheck.fly.dev/job",
+      homepage: "https://livecheck.fly.dev/job?ref=mppdev",
       llmsTxt: "https://livecheck.fly.dev/llms.txt",
     },
     provider: { name: "Livecheck", url: "https://livecheck.fly.dev" },
