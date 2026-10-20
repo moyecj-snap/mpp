@@ -1038,11 +1038,21 @@ export const services: ServiceDef[] = [
     url: "https://livecheck.fly.dev",
     serviceUrl: "https://livecheck.fly.dev",
     description:
-      "Live status check for job postings and listings: fetches the URL at call time and returns live, closed, or unknown with evidence.",
+      "Verify live status: is this job posting still open (Greenhouse, Lever, Ashby, Workday)? Is this product still available or sold out (Shopify, eBay)? Returns live (open or in stock), closed, or unknown, with evidence from the listing page.",
 
     categories: ["data", "web"],
     integration: "first-party",
-    tags: ["jobs", "job-postings", "listings", "link-check", "verification"],
+    tags: [
+      "jobs",
+      "job-postings",
+      "listings",
+      "products",
+      "product-availability",
+      "in-stock",
+      "sold-out",
+      "link-check",
+      "verification",
+    ],
     docs: {
       homepage: "https://livecheck.fly.dev/job?ref=mppdev",
       llmsTxt: "https://livecheck.fly.dev/llms.txt",
@@ -1054,17 +1064,17 @@ export const services: ServiceDef[] = [
     endpoints: [
       {
         route: "POST /v1/verify",
-        desc: "Check whether a URL is live, closed, or unknown, with evidence",
+        desc: "Check whether a job posting or product listing URL is live, closed, or unknown, with evidence",
         amount: "10000",
       },
       {
         route: "POST /v1/verify/job",
-        desc: "Check whether a job posting is still open (live/closed/unknown + evidence)",
+        desc: "Is this job posting still open (Greenhouse, Lever, Ashby, Workday)? Returns live/closed/unknown + evidence",
         amount: "10000",
       },
       {
         route: "POST /v1/verify/listing",
-        desc: "Check whether a listing is still available (live/closed/unknown + evidence)",
+        desc: "Is this product still available or sold out (Shopify, eBay)? Returns live (in stock), closed (sold out or ended), or unknown + evidence",
         amount: "10000",
       },
     ],
